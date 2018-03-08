@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /products
   # GET /products.json
   def index
@@ -15,6 +15,8 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all.collect{|category| [category.name, category.id]}
+    @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
   end
 
   # GET /products/1/edit
@@ -25,16 +27,17 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+    @product.user = current_user
+    @product.category = Category.find(params[:product][:category_id])
+    @product.brand = Brand.find(params[:product][:brand_id])
+    if params[:product][:spec].present?
+      params[:product][:spec].split(',').map {|spec|spec.strip}.each do |tag|
+        tag = Tag.find_or_create_by(name: tag)
+        Spec.create(product_id: @product.id, tag_id: tag.id)
       end
     end
+    @product.save
+    redirect_to products_path
   end
 
   # PATCH/PUT /products/1

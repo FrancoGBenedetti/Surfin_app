@@ -17,13 +17,28 @@
   </div>
 
   <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :product_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Categoría %>
+    <%= form.select :category_id, @categories, id: :product_category_id, prompt: "Seleccione categoría" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Marca %>
+    <%= form.select :brand_id, @brands, id: :product_brand_id, prompt: "Seleccione una marca" %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :product_description %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :product_price %>
+    <%= form.label :etiquetas %>
+    <%= form.text_field :spec %>
   </div>
 
   <div class="actions">
