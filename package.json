@@ -1,5 +1,7 @@
 {
   "name": "Surfin_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "fuzzball": "^1.0.1"
+  }
 }

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   # GET /products
   # GET /products.json
   def index
@@ -30,14 +30,17 @@ class ProductsController < ApplicationController
     @product.user = current_user
     @product.category = Category.find(params[:product][:category_id])
     @product.brand = Brand.find(params[:product][:brand_id])
-    if params[:product][:spec].present?
-      params[:product][:spec].split(',').map {|spec|spec.strip}.each do |tag|
-        tag = Tag.find_or_create_by(name: tag)
-        Spec.create(product_id: @product.id, tag_id: tag.id)
+    if @product.save
+      if params[:product][:spec].present?
+        params[:product][:spec].split(',').map {|spec|spec.strip}.each do |tag|
+          tag = Tag.find_or_create_by(name: tag)
+          Spec.create(product_id: @product.id, tag_id: tag.id)
+        end
       end
+      redirect_to products_path
+    else
+      redirect_to products_path
     end
-    @product.save
-    redirect_to products_path
   end
 
   # PATCH/PUT /products/1
