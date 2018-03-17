@@ -15,40 +15,40 @@
       <li class="nav-item active">
 
       </li>
-
     </ul>
-
+    
+    <div class="dropdown">
+      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorías
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% Category.all.each do |category| %>
+          <a class="dropdown-item" href="#"><%= category.name %></a>
+        <% end %>
+      </div>
+    </div>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
     </form>
 
     <ul class="navbar-nav ml-auto">
-
-        <% if current_user.present? %>
+      <% if current_user.present? %>
+        <li class="nav-item active">
+          <%= link_to 'Salir X', destroy_user_session_path,class: 'nav-link', method: :delete %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to current_user.name, '#', class: 'nav-link disable' %>
+        </li>
+      <% else %>
+          <li class="nav-item active">
+            <%= link_to 'Registrate', new_user_registration_path, class: 'nav-link' %>
+          </li>
 
           <li class="nav-item active">
-            <%= link_to 'Salir X', destroy_user_session_path,class: 'nav-link', method: :delete %>
+            <%= link_to 'Iniciar Sesión', new_user_session_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item active">
-            <%= link_to current_user.name, '#', class: 'nav-link disable' %>
-          </li>
-
-        <% else %>
-
-            <li class="nav-item active">
-              <%= link_to 'Registrate', new_user_registration_path, class: 'nav-link' %>
-            </li>
-
-
-            <li class="nav-item active">
-              <%= link_to 'Iniciar Sesión', new_user_session_path, class: 'nav-link' %>
-            </li>
-
-        <% end %>
-
-
-
+      <% end %>
     </ul>
   </div>
 </nav>
