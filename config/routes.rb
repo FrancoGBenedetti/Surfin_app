@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
-  
-  devise_for :users
+
+
+  devise_for :users, controllers: {
+    sessions: 'user/sessions',
+    registrations: 'user/registrations'
+  }
 
 
   root 'pages#index'

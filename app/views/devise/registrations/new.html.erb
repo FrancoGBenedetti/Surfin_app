@@ -4,16 +4,6 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
@@ -31,32 +21,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :profile_pic %><br />
-    <%= f.text_field :profile_pic %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= radio_button_tag(:type, "Shop") %>
-    <%= label_tag(:type_shop, "Soy una tienda") %>
-    <%= radio_button_tag(:type, "User") %>
-    <%= label_tag(:type_user, "Soy un Usuario") %>
-
-  </div>
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

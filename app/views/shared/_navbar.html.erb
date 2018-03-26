@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="<%= root_path %>">
   <figure class="figure">
     <%= image_tag 'logo-01.png', class: 'figure-img img-fluid logo' %>
   </figure>
@@ -16,7 +16,7 @@
 
       </li>
     </ul>
-    
+
     <div class="dropdown">
       <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categorías
@@ -38,7 +38,7 @@
           <%= link_to 'Salir X', destroy_user_session_path,class: 'nav-link', method: :delete %>
         </li>
         <li class="nav-item active">
-          <%= link_to current_user.name, '#', class: 'nav-link disable' %>
+          <%= link_to 'Ver Perfil', edit_user_registration_path, class: 'nav-link disable' %>
         </li>
       <% else %>
           <li class="nav-item active">
