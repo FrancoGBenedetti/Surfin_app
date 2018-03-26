@@ -1,6 +1,54 @@
 <h1>Editing Product</h1>
 
-<%= render 'form', product: @product %>
+<!--<%= render 'form', product: @product %>-->
+
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :product_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Categoría %>
+    <%= form.select :category_id, @categories, id: :product_category_id, prompt: "Seleccione categoría" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Marca %>
+    <%= form.select :brand_id, @brands, id: :product_brand_id, prompt: "Seleccione una marca" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etiquetas %>
+    <%= form.text_field :spec %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

@@ -6,6 +6,6 @@ class Product < ApplicationRecord
 
 	has_many :photos
 
-	has_many :specs
-	has_many :tags, through: :spec
+	has_many :specs, dependent: :destroy
+	has_many :tags, through: :specs, dependent: :destroy
 end

@@ -1,7 +1,9 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+*{
+	box-sizing: border-box;
+}
 .logo{
 	width: 200px;
 }
@@ -9,5 +11,9 @@
 .navbar{
 	box-shadow: 0px 0px 3px #999;
 	background-color: #f7f7f7;
+}
+
+.recently-prod-box{
+	
 }
 

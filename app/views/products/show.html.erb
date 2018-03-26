@@ -15,5 +15,23 @@
   <%= @product.price %>
 </p>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<% Category.all.each do |category| %>
+				<li>
+					<a class="dropdown-item" href="#"><%= category.name %></a>
+				</li>
+	        <% end %>
+		</div>
+		<div class="col-md-6">
+			
+		</div>
+		<div class="col-md-3">
+			
+		</div>
+	</div>
+</div>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

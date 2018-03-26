@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Category-create 
+#Producto.destroy_all
+#Category.destroy_all
+#Brand.destroy_all
 
+=begin
 Category.create(name: 'Guitarra Electrica')
 Category.create(name: 'Guitarra Acustica')
 Category.create(name: 'Bajo')
@@ -29,6 +33,8 @@ Category.create(name: 'Partes')
 #Brand-create 
 
 #FENDER
+Brand.destroy_all
+
 Brand.create(name: 'Fender')
 Brand.create(name: 'Squire')
 Brand.create(name: 'Gretsch')
@@ -56,6 +62,8 @@ Brand.create(name: 'Dunlop')
 Brand.create(name: 'Elixir')
 Brand.create(name: 'Dadario')
 
+=end
+
 
 
 
@@ -63,3 +71,20 @@ Brand.create(name: 'Dadario')
 
 
 
+#Products Create
+
+
+
+Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
+Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
+Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
+Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
+Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
+Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
+Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
+Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
+Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
+Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
+
+
+#Products Create End
