@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<div class="skin">
+		<div class="row">
+			<div class="col-md-3">
+				<ul class="category-list boxed">
+					<% i = 0 %>
+					<% Category.all.each do |category| %>
+						<li>
+							<a class="" href="#">
+								<%= category.name %>
+								<p class='contador'>
+									(<%= @cantidades[i] %>)
+								</p>
+								<% i += 1 %>	
+							</a>
+							
+						</li>
+			        <% end %>
+
+				</ul>
+				
+			</div>
+
+			<div class="col-md-9">
+				<div class="row gap">
+					
+						<% @products.each do |product| %>
+							<div class="card m-1 elegant" style="width: 12rem;">
+							  <img class="card-img-top" src="https://picsum.photos/200/200" alt="Card image cap">
+							  <div class="card-body">
+							    <h5 class="card-title"><%= product.name %></h5>
+							    
+							    <p class="card-text"><%= product.price %></p>
+							    <%= link_to 'Show', product %>
+							  </div>
+							</div>
+						<% end %>
+					
+					
+				</div>
+						
+			</div>
+
+			
+		</div>
+	</div>
+	
+</div>
