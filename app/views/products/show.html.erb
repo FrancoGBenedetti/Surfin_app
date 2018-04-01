@@ -15,7 +15,14 @@
   <%= @product.price %>
 </p>
 
+<h4>datos del vendedor</h4>
+<% if @product.user.shop? %>
+  <%= render 'shared/widgetShop' %>
+<% else %>
+  <%= render 'shared/widgetUser' %>
+<% end %>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<h4>etiquetas:</h4>
+<% @specs.each do |spec| %>
+  <a href="#" class="badge badge-primary"><%= spec.tag.name %></a>
+<% end %>

@@ -24,11 +24,17 @@ class User::RegistrationsController < Devise::RegistrationsController
     name = params[:user][:name]
     phone = params[:user][:phone]
     profile_pic = params[:user][:profile_pic]
-
+    if current_user.shop?
+      address = params[:user][:address]
+      description = params[:user][:description]
+      banner_pic = params[:user][:banner_pic]
+      current_user.address = address
+      current_user.description = description
+      current_user.banner_pic = banner_pic
+    end
     current_user.name = name
     current_user.phone = phone
     current_user.profile_pic = profile_pic
-
     current_user.save
     redirect_to root_path
   end
