@@ -33,6 +33,12 @@ class User::RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
+  def upgrade
+    if current_user.user?
+      current_user.shop!
+    end
+    redirect_to edit_user_registration_path, notice: 'ahora eres una tienda'
+  end
   # DELETE /resource
   # def destroy
   #   super

@@ -1,0 +1,26 @@
+<%= form_with model: current_user, url: user_registration_path, local: true do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :profile_photo %>
+  <%= f.text_field :profile_pic %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Conviertete en tienda', users_upgrade_path, method: :patch, class:'btn btn-success' %>
+<%
+=begin
+tabla usuario
+t.string "name"
+t.string "phone"
+t.string "profile_pic"
+t.string "banner_pic"
+t.string "address"
+t.text "description"
+=end
+%>

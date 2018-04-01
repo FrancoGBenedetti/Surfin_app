@@ -1,27 +1,6 @@
 <h2>Actualiza Tus Datos de Perfil</h2>
-
-<%= form_with model: current_user, url: user_registration_path, local: true do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-
-  <%= f.label :profile_photo %>
-  <%= f.text_field :profile_pic %>
-
-  <%= f.submit %>
+<% if current_user.shop? %>
+  <%= render 'shared/shopProfile' %>
+<% else %>
+  <%= render 'shared/userProfile' %>
 <% end %>
-<%= image_tag current_user.profile_pic %>
-<%
-=begin
-tabla usuario
-t.string "name"
-t.string "phone"
-t.string "profile_pic"
-t.string "banner_pic"
-t.string "address"
-t.text "description"
-=end
-%>
