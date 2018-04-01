@@ -22,6 +22,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @product = Product.new
+    @categories = Category.all.collect{|category| [category.name, category.id]}
+    @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
   end
 
   # POST /products

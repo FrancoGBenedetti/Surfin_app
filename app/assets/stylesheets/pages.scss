@@ -24,6 +24,18 @@ $theme-color-blue: #4299cb;
 	font-size: 0.8rem;
 }
 
+@mixin bkg-img-mixin($w-size, $h-size, $b-size){
+    position: relative;
+    width:  $w-size;
+    height: $h-size;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     $b-size;
+    padding: 1%;
+    margin: 0 auto;
+}
+
+
 ///ESTILOS///
 
 .boxed{
