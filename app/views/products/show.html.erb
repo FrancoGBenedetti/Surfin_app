@@ -26,3 +26,8 @@
 <% @specs.each do |spec| %>
   <a href="#" class="badge badge-primary"><%= spec.tag.name %></a>
 <% end %>
+
+<h4>productos similares</h4>
+<% @rel_products.each do |product| %>
+  <%= product.name %>
+<% end %>

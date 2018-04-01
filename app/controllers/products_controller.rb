@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @specs = Spec.where(product_id: @product.id)
+    @rel_products =  Product.joins(:tags).where('tags.id' => @product.tag_ids).where.not('products.id' => @product.id)
   end
 
   # GET /products/new
@@ -21,7 +22,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @product = Product.new
   end
 
   # POST /products
@@ -74,6 +74,7 @@ class ProductsController < ApplicationController
       @categories = Category.all.collect{|category| [category.name, category.id]}
       @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
     end
+
     def set_product
       @product = Product.find(params[:id])
     end
