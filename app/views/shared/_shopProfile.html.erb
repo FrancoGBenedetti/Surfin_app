@@ -1,1 +1,34 @@
 <h1> ERES UNA TIENDA</h1>
+<%= form_with model: current_user, url: user_registration_path, local: true do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :profile_photo %>
+  <%= f.text_field :profile_pic %>
+
+  <%= f.label :portada %>
+  <%= f.text_field :banner_pic %>
+
+  <%= f.label :dirección %>
+  <%= f.text_field :address %>
+
+  <%= f.label :descripción %>
+  <%= f.label :description %>
+  
+  <%= f.submit %>
+<% end %>
+<%
+=begin
+tabla usuario
+t.string "name"
+t.string "phone"
+t.string "profile_pic"
+t.string "banner_pic"
+t.string "address"
+t.text "description"
+=end
+%>
