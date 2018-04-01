@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :find_categories, only: [:new, :edit]
   before_action :authenticate_user!
   # GET /products
   # GET /products.json
@@ -70,6 +71,9 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def find_categories
+      @categories = Category.all.collect{|category| [category.name, category.id]}
+    end
     def set_product
       @product = Product.find(params[:id])
     end
