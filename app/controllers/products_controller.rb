@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :find_categories, only: [:new, :edit]
+  before_action :select_input, only: [:new, :edit]
   before_action :authenticate_user!
   # GET /products
   # GET /products.json
@@ -17,15 +17,11 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @categories = Category.all.collect{|category| [category.name, category.id]}
-    @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
   end
 
   # GET /products/1/edit
   def edit
     @product = Product.new
-    @categories = Category.all.collect{|category| [category.name, category.id]}
-    @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
   end
 
   # POST /products
@@ -74,8 +70,9 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def find_categories
+    def select_input
       @categories = Category.all.collect{|category| [category.name, category.id]}
+      @brands = Brand.all.collect {|brand| [brand.name, brand.id]}
     end
     def set_product
       @product = Product.find(params[:id])
