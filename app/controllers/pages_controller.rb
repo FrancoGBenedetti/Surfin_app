@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   	Category.all.each do |category|
   		@cantidades << category.products.size
   	end
+    
   end
 
   def info

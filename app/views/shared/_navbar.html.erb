@@ -17,19 +17,25 @@
       </li>
     </ul>
 
-    <div class="dropdown">
-      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+    <div class="dropdown mr-2">
+
+      <button class="btn btn-info btn-categories dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categorías
       </button>
+
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <% Category.all.each do |category| %>
           <a class="dropdown-item" href="#"><%= category.name %></a>
         <% end %>
       </div>
+
     </div>
+
+
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-info btn-search my-2 my-sm-0" type="submit">Search</button>
     </form>
 
     <ul class="navbar-nav ml-auto">

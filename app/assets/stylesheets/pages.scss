@@ -14,6 +14,9 @@ $body-color: #f7f7f7;
 $font-color-a:  #474747 ;
 $line-color-a: #c8c8c8;
 
+$theme-color-yellow: #f2cc3f;
+$theme-color-blue: #4299cb;
+
 
 
 @mixin contador-mixin {
@@ -21,15 +24,7 @@ $line-color-a: #c8c8c8;
 	font-size: 0.8rem;
 }
 
-//css general//
-.skin{
-	background-color: $body-color;
-	padding: 2%;
-}
-.gap{
-	padding: 1%;
-	
-}
+///ESTILOS///
 
 .boxed{
 	background-color: white !important;
@@ -42,16 +37,72 @@ $line-color-a: #c8c8c8;
 	box-shadow: 1px 1px 2px #d8d8d8;
 }
 
-//css general fin
 
+@mixin btn-mixin{
+	background-color: $theme-color-yellow;
+	border-color: $theme-color-yellow;
+}
+
+///ESTILOS END///
+
+
+//css general//
+.skin{
+	background-color: $body-color;
+	padding: 2%;
+}
+.gap{
+	padding: 1%;
+	
+}
+
+
+
+.btn{
+	border-radius: 0px !important;
+	transition: all .8s;
+}
+
+.btn:hover{
+	box-shadow: 1px 1px 2px #d8d8d8;
+}
+//css NAVBAR //
 .logo{
 	width: 200px;
 }
 
 .navbar{
 	box-shadow: 0px 0px 3px #999;
-	background-color: #f7f7f7;
+	background-color: white;
+	.dropdown-menu.show{
+		background-color: $theme-color-blue !important;
+		a{
+			color: white !important;
+			transition: .6s;
+		}
+		a:hover{
+			color: $theme-color-blue !important;
+			font-size: larger;
+		}
+	}
+	.dropdown{
+		
+
+	}
+	.btn-categories{
+		@include btn-mixin;
+	}
+
+	.btn-search{
+		@include btn-mixin;
+	}
 }
+
+
+// NAVBAR END//
+
+//css general fin
+
 
 .recently-prod-box{
 	
