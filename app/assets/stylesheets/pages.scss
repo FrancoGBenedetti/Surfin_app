@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 *{
 	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	background-color: #f8f8f8;
 }
 
 
@@ -16,6 +21,7 @@ $line-color-a: #c8c8c8;
 
 $theme-color-yellow: #f2cc3f;
 $theme-color-blue: #4299cb;
+$theme-color-light-blue: #65acd4;
 
 
 
@@ -90,7 +96,7 @@ $theme-color-blue: #4299cb;
 		background-color: $theme-color-blue !important;
 		a{
 			color: white !important;
-			transition: .6s;
+			transition: all .6s;
 		}
 		a:hover{
 			color: $theme-color-blue !important;
@@ -112,6 +118,39 @@ $theme-color-blue: #4299cb;
 
 
 // NAVBAR END//
+
+
+///FORMS////
+
+.form-box{
+	padding: 20px;
+    background-color: white;
+    color: $theme-color-light-blue;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0px 0px 2px #e8e8e8;
+    border-radius: 3px;
+    position: relative;
+    transition: all .3s;
+    bottom: 0px;
+    input{
+    	border: 2px solid $theme-color-light-blue !important;
+    }
+    .form-btn{
+		@include btn-mixin;
+		border: none !important;
+		color: white;
+		
+    }
+    
+}
+.form-box:hover{
+	
+	bottom: 5px;
+	
+}
+
+
+/// END FORMS ////
 
 //css general fin
 
