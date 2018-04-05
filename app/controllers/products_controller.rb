@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @specs = Spec.where(product_id: @product.id)
-    @rel_products =  Product.joins(:tags).where('tags.id' => @product.tag_ids).where.not('products.id' => @product.id)
+    @rel_products =  Product.joins(:tags).where('tags.id' => @product.tag_ids).where.not('products.id' => @product.id).uniq
   end
 
   # GET /products/new
