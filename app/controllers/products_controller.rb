@@ -13,15 +13,19 @@ class ProductsController < ApplicationController
   def show
     @specs = Spec.where(product_id: @product.id)
     @rel_products =  Product.joins(:tags).where('tags.id' => @product.tag_ids).where.not('products.id' => @product.id).uniq
+    @photos = @product.photos
+    @comments = @product.comments
   end
 
   # GET /products/new
   def new
     @product = Product.new
+
   end
 
   # GET /products/1/edit
   def edit
+    @photos = @product.photos
   end
 
   # POST /products
@@ -38,11 +42,13 @@ class ProductsController < ApplicationController
           Spec.create(product_id: @product.id, tag_id: tag.id)
         end
       end
-      redirect_to products_path
+      redirect_to edit_product_path(@product)
     else
       redirect_to products_path
     end
   end
+
+
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json

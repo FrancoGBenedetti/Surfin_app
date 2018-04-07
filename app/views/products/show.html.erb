@@ -31,3 +31,24 @@
 <% @rel_products.each do |product| %>
   <%= product.name %>
 <% end %>
+
+
+<%= form_with model: [@product, Comment.new], local: true  do |f| %>
+  
+  <%= f.text_area :content  %>
+  <%= f.submit %>
+
+<% end %>
+
+<% if @comments.present? %>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <%= comment.content %>
+      </li>
+    <% end %>
+  </ul>
+  
+<% else %>
+  <h2>No hay comentarios!</h2>
+<% end %>

@@ -2,6 +2,21 @@
 
 <%= render 'form', product: @product %>
 
+<%= form_with model: [@product, Photo.new], local: true  do |f| %>
+	
+	<%= f.file_field :image  %>
+	<%= f.submit %>
+
+<% end %>
+
+<% if @photos.count > 0 %>
+	<% @photos.each do |photo| %>
+		<%= image_tag photo.image %>
+	<% end %>
+<% else %>
+	<h2>Agrega Fotos!</h2>
+<% end %>
+
 
 
 <%= link_to 'Show', @product %> |

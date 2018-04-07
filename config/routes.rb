@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'pages/info'
 
   resources :categories
+
   resources :products do
     resources :comments, only: [:create, :delete]
+    resources :photos, only: [:create, :delete]
   end
 
   devise_for :users, controllers: {
