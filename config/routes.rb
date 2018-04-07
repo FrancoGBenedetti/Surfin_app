@@ -6,14 +6,16 @@ Rails.application.routes.draw do
   get 'pages/info'
 
   resources :categories
-  resources :products
+  resources :products do
+    resources :comments, only: [:create, :delete]
+  end
 
   devise_for :users, controllers: {
     sessions: 'user/sessions',
     registrations: 'user/registrations'
 
   }
-  
+
   devise_scope :user do
     patch 'users/upgrade', to: 'user/registrations#upgrade'
   end
