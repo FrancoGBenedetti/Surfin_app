@@ -16,4 +16,4 @@
 
 #### Cuenta con un panel de administración para los usuarios y los productos, implementado atraves de active admin.
 
-[Ver Demo](https://surfin-app.herokuapp.com/categories/1 "Live Demo")
+[Ver Demo](https://surfin-app.herokuapp.com/ "Live Demo")
