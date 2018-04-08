@@ -23,6 +23,8 @@ $theme-color-yellow: #f2cc3f;
 $theme-color-blue: #4299cb;
 $theme-color-light-blue: #65acd4;
 
+$price-color: #4299cb;
+
 
 
 @mixin contador-mixin {
@@ -59,6 +61,7 @@ $theme-color-light-blue: #65acd4;
 @mixin btn-mixin{
 	background-color: $theme-color-yellow;
 	border-color: $theme-color-yellow;
+
 }
 
 ///ESTILOS END///
@@ -114,6 +117,15 @@ $theme-color-light-blue: #65acd4;
 	.btn-search{
 		@include btn-mixin;
 	}
+	.btn-sale{
+		 border-width: 2px;  
+   		 border-style: dashed;
+   		 border-color: #d3d234;
+   		 p{
+   		 	color: #c8c8c8;
+   		 }
+
+	}
 }
 
 
@@ -161,8 +173,44 @@ $theme-color-light-blue: #65acd4;
 
 .card{
 	border-radius: 0px !important;
-	padding: 0.8% !important;
+	bottom: 0px;
+	transition: all .6s;
+	.card-img-box{
+		@include bkg-img-mixin(100%, 12rem, cover)
+	}
+	.card-body{
+		padding: 5%;
 
+		.card-title{
+			font-weight: bolder;
+		}
+		.card-text{
+			color: $price-color;
+			text-align: center;
+			font-size: 1rem;
+			
+		}
+		a{
+			color: white !important;
+		}
+		.card-link{
+			@include btn-mixin;
+			h5{
+				margin-bottom: 0;
+				text-align: right !important;
+				font-size: .8rem;
+				padding: 2%;
+				
+			}
+		}
+	}
+	
+
+}
+.card:hover{
+	position: relative;
+	bottom: 3px;
+	box-shadow: 0px 0px 5px #c8c8c888;
 }
 
 
