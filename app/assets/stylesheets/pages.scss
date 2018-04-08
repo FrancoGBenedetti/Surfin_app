@@ -195,7 +195,9 @@ $price-color: #4299cb;
 	bottom: 0px;
 	transition: all .6s;
 	.card-img-box{
+		background-image: url('exampleGuitar.jpg');
 		@include bkg-img-mixin(100%, 12rem, cover)
+
 	}
 	.card-body{
 		padding: 5%;
@@ -246,10 +248,16 @@ $price-color: #4299cb;
 		transition: all .8s;
 		margin-left: 2%;
 	}
-	a{transition: all .8s;}
+	a{
+		transition: all .8s;
+		color: #474747 !important;
+		text-decoration: none !important;
+
+	}
 	a:hover{
 		background-color: $theme-color-yellow;
 		box-shadow: 0 0 5px #c8c8c8;
+
 		
 	}
 	li:hover{

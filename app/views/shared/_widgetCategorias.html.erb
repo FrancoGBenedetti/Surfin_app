@@ -4,11 +4,13 @@
 					<h3 class="widget-title ">Categorias</h3>
 					 <% Category.all.each do |category| %>
 
-			          <a class="dropdown-item" href="#">
-			          	<li>
-			          		<%= link_to category.name, category %>
-			          	</li>
-			          </a>
+			          
+			          
+			          		<%= link_to category do %>
+			          			<li><%= category.name   %></li>
+			          		<% end %>
+			          	
+			         
 
 			        <% end %>
 				</ul>
