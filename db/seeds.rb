@@ -6,10 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Category-create
-#Producto.destroy_all
-#Category.destroy_all
-#Brand.destroy_all
+Photo.destroy_all
+Spec.destroy_all
+Comment.destroy_all
+
+Product.destroy_all
+Category.destroy_all
+Brand.destroy_all
+Tag.destroy_all
+User.destroy_all
 
 
 Category.create(name: 'Guitarra Electrica')
@@ -25,15 +30,26 @@ Category.create(name: 'Vientos')
 Category.create(name: 'Cuerdas Frotadas')
 Category.create(name: 'Accesorios')
 Category.create(name: 'Partes')
-
-#Category-create end
-
+#tags
+Tag.create(name: 'Rock')
+Tag.create(name: 'Música')
+Tag.create(name: 'Punk')
+Tag.create(name: 'Instrumentos')
+Tag.create(name: 'Creativo')
+Tag.create(name: 'Tocata')
+Tag.create(name: 'Oferta')
+Tag.create(name: 'Fender')
+Tag.create(name: 'Folk')
+Tag.create(name: 'Acustico')
+Tag.create(name: 'Vintage')
+Tag.create(name: 'Pop')
+Tag.create(name: 'Home-studio')
+Tag.create(name: 'DJ')
 #-------------------------------------------------------
 
 #Brand-create
 
 #FENDER
-Brand.destroy_all
 
 Brand.create(name: 'Fender')
 Brand.create(name: 'Squire')
@@ -62,28 +78,27 @@ Brand.create(name: 'Dunlop')
 Brand.create(name: 'Elixir')
 Brand.create(name: 'Dadario')
 
+tags = Tag.all
+cats = Category.all
+brand = Brand.all
+User.create(email: 'example@example.com', password:'123123')
+
+40.times do
+  User.create(email: Faker::Internet.email, password: '123123', phone: '9999999')
+end
+
+users = User.all
 
 
 
+100.times do
+  prod = Product.create(name: Faker::Commerce.product_name, description: Faker::Lovecraft.sentence, price: Faker::Commerce.price, category_id: cats.sample.id, brand_id: brand.sample.id, user_id: users.sample.id)
+  rand(1..3).times do
+    Spec.create(product_id: prod.id, tag_id: tags.sample.id)
+  end
+end
+prods = Product.all
 
-#Brand-create end
-
-
-
-#Products Create
-#
-#
-#
-# Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
-# Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
-# Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
-# Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
-# Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
-# Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
-# Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
-# Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
-# Product.create(name: 'Fender Stratocaster 1983', description: 'Guitarra Fender del 83, Excelente Estado!', price: '1.200.000', category_id: '1', brand_id: '1',user_id: '1' )
-# Product.create(name: 'Epiphone Wildkat 2004', description: 'Guitarra Epiphone wildkat NUeva! ', price: '458.000', category_id: '1', brand_id: '7',user_id: '1' )
-
-
-#Products Create End
+300.times do
+  Comment.create(content: Faker::RickAndMorty.quote, product_id: prods.sample.id, user_id: users.sample.id)
+end

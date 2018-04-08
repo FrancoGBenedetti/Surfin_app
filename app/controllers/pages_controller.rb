@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@products = Product.order('created_at DESC LIMIT 5')
-
+  	@products = Product.order('created_at DESC LIMIT 20')
   end
 
   def search
@@ -24,7 +23,7 @@ class PagesController < ApplicationController
         format.js
       end
     else
-      @products = Product.all
+      @products = Product.order('created_at DESC LIMIT 5')
     end
   end
 end
