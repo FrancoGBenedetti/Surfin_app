@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'pages/info'
 
+  get 'pages/find_products'
   resources :categories
 
   resources :products do

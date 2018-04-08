@@ -1,0 +1,5 @@
+if (<%= @products.size %> > 0){
+  $('#products').html("<%= j render @products %>");
+}else {
+  $('#products').html("<h5> No se encontró tu producto :C </h5>");
+}

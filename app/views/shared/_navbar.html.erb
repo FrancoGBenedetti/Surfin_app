@@ -34,29 +34,29 @@
 
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-info btn-search my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" id="buscar" type="search" placeholder="Buscar..." aria-label="Search">
+      <button class="btn btn-info btn-search my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 
     <ul class="navbar-nav ml-auto">
       <% if current_user.present? %>
         <li class="nav-item active btn btn-sale">
-          
+
           <%= link_to new_product_path, class: 'nav-link' do %>
             <p class="m-0">Vender<i class="fas fa-box ml-1"></i></p>
-            
+
           <% end %>
 
-          
+
         </li>
-        
+
         <li class="nav-item active pl-3">
           <%= link_to edit_user_registration_path do %>
             <h3 class='nav-link disable' ><i class="far fa-user-circle"></i></h3>
           <% end %>
         </li>
         <li class="nav-item active">
-          
+
           <%= link_to destroy_user_session_path, method: :delete  do %>
             <i class="far fa-times-circle"></i>
           <% end %>
@@ -73,3 +73,26 @@
     </ul>
   </div>
 </nav>
+
+<script type="text/javascript">
+  $('#buscar').keyup(function () {
+    var q = $(this).val()
+    $.ajax({
+      url: '<%= pages_find_products_path %>',
+      type: 'GET',
+      data: {
+        buscar: q
+      }
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+  });
+</script>

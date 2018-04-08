@@ -11,9 +11,20 @@ class PagesController < ApplicationController
   	Category.all.each do |category|
   		@cantidades << category.products.size
   	end
-    
+
   end
 
   def info
+  end
+
+  def find_products
+    if params[:buscar].present?
+      @products = Product.where('name like ?', "%#{params[:buscar]}%")
+      respond_to do |format|
+        format.js
+      end
+    else
+      @products = Product.all
+    end
   end
 end
