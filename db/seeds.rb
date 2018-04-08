@@ -84,7 +84,7 @@ brand = Brand.all
 User.create(email: 'example@example.com', password:'123123')
 
 40.times do
-  User.create(email: Faker::Internet.email, password: '123123', phone: '9999999')
+  User.create(name: Faker::Zelda.character, email: Faker::Internet.email, password: '123123', phone: '9999999')
 end
 
 users = User.all
