@@ -135,10 +135,15 @@ $price-color: #4299cb;
 		 border-width: 2px;  
    		 border-style: dashed;
    		 border-color: #d3d234;
+   		 transition: all .8s;
+   		 border-radius: 0;
    		 p{
    		 	color: #c8c8c8;
    		 }
 
+	}
+	.btn-sale:hover{
+		border-radius: 8px !important;
 	}
 }
 
