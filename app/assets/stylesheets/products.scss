@@ -2,11 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $theme-color-yellow: #f2cc3f;
+$body-color: #f7f7f7;
+$font-color-a:  #474747 ;
+$line-color-a: #c8c8c8;
+
+$theme-color-yellow: #f2cc3f;
+$theme-color-blue: #4299cb;
+$theme-color-light-blue: #65acd4;
+
+$price-color: #4299cb;
+
+*{
+	box-sizing: border-box;
+}
+
+@mixin bkg-img-mixin($w-size, $h-size, $b-size){
+    position: relative;
+    width:  $w-size;
+    height: $h-size;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     $b-size;
+    padding: 1%;
+    margin: 0 auto;
+}
 
 @mixin btn-mixin{
 	background-color: $theme-color-yellow;
 	border-color: $theme-color-yellow;
 
+}
+.title-section{
+	text-align: center;
+	font-weight: bolder;
 }
 
 .product-show-box{
@@ -57,4 +85,54 @@ $theme-color-yellow: #f2cc3f;
 
 .carousel-pro, .slick-list, .slick-track{
 	heigh: 100% !important;
+}
+
+.card{
+	border-radius: 0px !important;
+	bottom: 0px;
+	transition: all .6s;
+	.card-img-box{
+		background-image: url('exampleGuitar.jpg');
+		@include bkg-img-mixin(100%, 12rem, cover)
+
+	}
+	.card-body{
+		padding: 5%;
+
+		.card-title{
+			font-weight: bolder;
+		}
+		.card-text{
+			color: $price-color;
+			text-align: center;
+			font-size: 1rem;
+			
+		}
+		a{
+			color: white !important;
+		}
+		.card-link{
+			@include btn-mixin;
+			h5{
+				margin-bottom: 0;
+				text-align: right !important;
+				font-size: .8rem;
+				padding: 2%;
+				
+			}
+		}
+	}
+	
+
+}
+.card:hover{
+	position: relative;
+	bottom: 3px;
+}
+
+.related-container{
+	padding: 2rem !important;
+	background-color: #f1f1f1;
+	box-shadow: inset 1px 1px 4px #c8c8c8;
+	
 }
