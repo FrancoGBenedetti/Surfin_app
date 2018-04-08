@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :products do
-    resources :comments, only: [:create, :delete]
-    resources :photos, only: [:create, :delete]
+    resources :comments, only: [:create, :destroy]
+    resources :photos, only: [:create, :destroy]
   end
 
   devise_for :users, controllers: {

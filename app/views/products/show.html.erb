@@ -33,22 +33,27 @@
 <% end %>
 
 
-<%= form_with model: [@product, Comment.new], local: true  do |f| %>
-  
+<%= form_with model: [@product, Comment.new]  do |f| %>
+
   <%= f.text_area :content  %>
   <%= f.submit %>
 
 <% end %>
 
 <% if @comments.present? %>
-  <ul>
+  <ul id="comment_list">
     <% @comments.each do |comment| %>
-      <li>
-        <%= comment.content %>
-      </li>
+      <li id="comment<%= comment.id %>"><%= comment.content %> <%= link_to 'Borrar', product_comment_path(@product,comment), data: {method: :delete, remote: true}, class: 'btn btn-danger' if can? :destroy, comment %></li>
     <% end %>
   </ul>
-  
+
 <% else %>
+<ul id="comment_list">
+
+</ul>
   <h2>No hay comentarios!</h2>
+<% end %>
+
+<% if can? :update, @product %>
+  <%= link_to "Edit", edit_product_path(@product), class:'btn btn-info' %>
 <% end %>

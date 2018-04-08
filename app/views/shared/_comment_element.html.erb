@@ -1,0 +1,1 @@
+<li id="comment<%= @comment.id %>"><%= @comment.content %> <%= link_to 'Borrar', product_comment_path(@product,@comment), data: {method: :delete, remote: true}, class: 'btn btn-danger' if can? :destroy, @comment %></li>
