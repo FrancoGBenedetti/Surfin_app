@@ -13,10 +13,9 @@ class CommentsController < ApplicationController
 
   def destroy
       @product = Product.find(params[:product_id])
-      @photo = Photo.find(params[:id])
+      @comment = Comment.find(params[:id])
 
-      @photo.destroy
-      redirect_to edit_product_path(@product)
+      @comment.destroy
   end
 
   private

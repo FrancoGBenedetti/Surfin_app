@@ -43,7 +43,7 @@
 <% if @comments.present? %>
   <ul id="comment_list">
     <% @comments.each do |comment| %>
-      <li><%= comment.content %> <%= link_to 'Borrar', product_comment_path(@product,comment), method: :delete, class: 'btn btn-danger' if can? :destroy, comment %></li>
+      <li id="comment<%= comment.id %>"><%= comment.content %> <%= link_to 'Borrar', product_comment_path(@product,comment), data: {method: :delete, remote: true}, class: 'btn btn-danger' if can? :destroy, comment %></li>
     <% end %>
   </ul>
 
