@@ -1,3 +1,71 @@
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-2">
+      
+    </div>
+    <div class="col-md-6">
+      
+
+      <div class="product-show-box">
+        <div class="title-box">
+          <h3 class="product-show-title d-flex"><%= @product.name %></h3>
+          <div>
+            <h4 class="extra-info">
+              <i class="far fa-clock"></i>
+              Fecha de Publicación: <%= @product.created_at %>
+            </h4>
+          </div>
+            
+          
+        </div>
+
+        <div class="image-box">
+          <div class="carousel-pro slider-for">
+            <%= image_tag("exampleGuitar.jpg") %>
+            <%= image_tag("exampleGuitar.jpg") %>
+            <%= image_tag("exampleGuitar.jpg") %>
+            <%= image_tag("exampleGuitar.jpg") %>
+          </div>
+          <div class="slider-nav">
+            
+
+           <%= image_tag("exampleGuitar.jpg") %>
+           <%= image_tag("exampleGuitar.jpg") %>
+           <%= image_tag("exampleGuitar.jpg") %>
+           <%= image_tag("exampleGuitar.jpg") %>
+
+          </div>
+        </div>
+
+        <div class="description-box">
+          <div class="d-inline">
+            <h4 class="d-inline">Descripción: </h4>
+          </div>
+          <div class="d-inline ml-2">
+            <% @specs.each do |spec| %>
+              <a href="#" class="badge badge-primary"><%= spec.tag.name %></a>
+            <% end %>
+          </div>
+          
+          <div class="col-md-12 description-content mt-1">
+             <p>
+              <%= @product.description %>
+            </p>
+          </div>
+         
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      
+    </div>
+  </div>
+</div>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -57,3 +125,29 @@
 <% if can? :update, @product %>
   <%= link_to "Edit", edit_product_path(@product), class:'btn btn-info' %>
 <% end %>
+
+<script>
+  
+   $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+  });
+
+   $('.slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    dots: true,
+    centerMode: true,
+    focusOnSelect: true
+  });
+  
+  
+  $( "div.slick-slide > div" ).css( "height", "100%" );
+   $( "div.slick-slide > div" ).css( "padding", "2px" );
+      
+
+</script>

@@ -1,3 +1,38 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$theme-color-yellow: #f2cc3f;
+
+.product-show-box{
+	background-color: white;
+	padding: 3%;
+	.title-box{
+		
+		.product-show-title{
+			font-size: 3rem;
+			font-weight: bolder;
+		}
+		.extra-info{
+			font-size: 1rem;
+			color: #c8c8c8;
+		}
+	}
+	.image-box{
+
+	}
+	.description-box{
+		background-color: $theme-color-yellow;
+		padding: 2%;
+		.description-content{
+			padding: 3%;
+			border-radius: 20px;
+			background-color: white;
+
+		}
+	}
+}
+
+
+.carousel-pro, .slick-list, .slick-track{
+	heigh: 100% !important;
+}
