@@ -1,16 +1,15 @@
 			<div class="pl-3">
-				
+
 				<ul class="widget-categorias boxed-style">
 					<h3 class="widget-title ">Categorias</h3>
 					 <% Category.all.each do |category| %>
 
 			          <a class="dropdown-item" href="#">
 			          	<li>
-			          		<%= category.name %>	
+			          		<%= link_to category.name, category %>
 			          	</li>
 			          </a>
 
 			        <% end %>
 				</ul>
 			</div>
-			

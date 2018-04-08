@@ -1,9 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid ">
+	<div class="row pt-5">
+		<div class="col-md-3">
+			<%= render 'shared/widgetCategorias' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+		</div>
+		<div class="col-md-6">
+			<div class="row d-flex align-items-stretch">
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+					<% @category.products.each do |product| %>
+						<div class="card m-1" style="width: 13rem;">
+
+						  <div class="card-img-box" style="background-image:url('<%= product.photos.first.image %>')">
+           				 </div>
+
+						  <div class="card-body d-flex align-items-end">
+						  	<div class="w-100">
+						  		<h5 class="card-title text-center"><%= product.name %></h5>
+
+							    <p class="card-text">$<%= product.price %></p>
+
+							    	<%= link_to product do %>
+
+											<div class="text-right card-link btn d-flex">
+												<h5 class="text-right">
+													Go
+													<i class="fas fa-angle-right"></i>
+												</h5>
+											</div>
+
+
+									<% end %>
+
+
+
+						  	</div>
+
+						  </div>
+						</div>
+					<% end %>
+
+
+			</div>
+		</div>
+		<div class="col-md-3">
+			<h3>Lista de tiendas</h3>
+		</div>
+	</div>
+</div>
