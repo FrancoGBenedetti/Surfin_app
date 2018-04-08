@@ -3,9 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $theme-color-yellow: #f2cc3f;
 
+@mixin btn-mixin{
+	background-color: $theme-color-yellow;
+	border-color: $theme-color-yellow;
+
+}
+
 .product-show-box{
 	background-color: white;
 	padding: 3%;
+	border: 1px solid #e8e8e887;
 	.title-box{
 		
 		.product-show-title{
@@ -32,6 +39,21 @@ $theme-color-yellow: #f2cc3f;
 	}
 }
 
+    .form-btn{
+		@include btn-mixin;
+		border: none !important;
+		color: white;
+		
+    }
+
+.comment-list{
+	padding-left: 0px;
+	li{
+		border-bottom: 1px dashed #d8d8d8;
+		padding: 2%;
+		list-style: none !important;
+	}
+}
 
 .carousel-pro, .slick-list, .slick-track{
 	heigh: 100% !important;
