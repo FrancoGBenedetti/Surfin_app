@@ -34,7 +34,7 @@
 
 
 <%= form_with model: [@product, Comment.new], local: true  do |f| %>
-  
+
   <%= f.text_area :content  %>
   <%= f.submit %>
 
@@ -48,7 +48,11 @@
       </li>
     <% end %>
   </ul>
-  
+
 <% else %>
   <h2>No hay comentarios!</h2>
+<% end %>
+
+<% if can? :update, @product %>
+  <%= link_to "Edit", edit_product_path(@product), class:'btn btn-info' %>
 <% end %>
