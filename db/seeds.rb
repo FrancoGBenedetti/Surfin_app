@@ -102,3 +102,4 @@ prods = Product.all
 300.times do
   Comment.create(content: Faker::RickAndMorty.quote, product_id: prods.sample.id, user_id: users.sample.id)
 end
+AdminUser.create!(email: 'admin@example.com', password: '123123', password_confirmation: '123123')
