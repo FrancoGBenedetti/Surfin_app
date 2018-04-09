@@ -136,3 +136,11 @@ $price-color: #4299cb;
 	box-shadow: inset 1px 1px 4px #c8c8c8;
 	
 }
+.form-img{
+	img{
+		width: 5rem;
+		margin-top: 1rem;
+		border: 2px double #c8c8c8;
+		padding: 5px;
+	}
+}

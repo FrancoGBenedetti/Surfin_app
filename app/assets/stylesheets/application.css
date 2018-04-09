@@ -17,3 +17,6 @@
  *= require slick-theme
  *= require_self
  */
+body{
+	overflow-x: hidden !important;
+}
