@@ -14,6 +14,6 @@
 
 #### Los productos están encasillados en marcas y categorías, para facilitar su busqueda. Tambien cuenta con un sistema de etiqueta para identificar productos posibilemente relacionados.
 
-#### Cuenta con un panel de administración para los usuarios y los productos, implementado atraves de active admin.
+#### Cuenta con un panel de administración para los usuarios y los productos, implementado a través de active admin.
 
 [Ver Demo](https://surfin-app.herokuapp.com/ "Live Demo")
